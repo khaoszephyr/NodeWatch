@@ -1,0 +1,34 @@
+# NodeWatch
+
+Nodewatch is a home-lab computer vision and security analytics platform designed to run on local hardware using Python, OpenCV, and YOLO.
+
+The project begins as a simple camera capture system and will gradually evolve into a full detection, event logging, analysis, and security research platform.
+
+## Current Status ##
+**Phase 1 Complete - Changes Implemented:**
+* Configurable camera source
+* VideoStream abstraction layer
+* Live webcam feed
+* FPS overlay
+* Timestamp overlay
+* Snapshot capture
+* Camera health monitoring
+* Git/GitHub integration
+
+## Project Roadmap ##
+**Phase 1** - Camera Capture Layer \
+**Phase 2** - YOLO Object Detection \
+**Phase 3** - Detection Storage & Event Logging \
+**Phase 4** - Object Tracking & Correlaton \
+**Phase 5** - FastAPI Backend \
+**Phase 6** - Dashboard & Analytics \
+**Phase 7** - Dataset Collection & Model Training \
+**Phase 8+** - Security Analytics, SIEM Integration, and Adversarial Testing 
+
+## Requirements ##
+Python 3.10+ \
+Install dependencies: \
+pip install -r requirements.txt
+
+## Long-Term Goal ##
+Create a LAN-only computer vision platform capable of collecting, analyzing, and visualizing detection events while serving as a cybersecutity, machine learning, and software engineering learning project.
