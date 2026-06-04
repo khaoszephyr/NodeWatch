@@ -1,0 +1,5 @@
+camera:
+  source: 0 # Will later be "rtsp://username:password@ip_address:port/stream"
+  width: 1280
+  height: 720
+  fps: 30
