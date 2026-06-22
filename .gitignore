@@ -18,3 +18,9 @@ storage/snapshots/
 *.db
 *.sqlite
 *.sqlite3
+
+# YOLOv8 model file
+yolov8n.pt
+
+# Temporary test files
+test_detector.py

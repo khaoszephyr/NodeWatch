@@ -2,9 +2,10 @@ import cv2
 import yaml
 import time
 import os
-from datetime import datetime
 
+from datetime import datetime
 from capture.stream import VideoStream
+from detection.detector import ObjectDetector
 
 def load_settings(path="config/settings.yaml"):
     with open(path, 'r') as file:
@@ -45,19 +46,20 @@ def draw_overlay(frame, fps, camera_status):
 
     return frame
 
-def save_snapshot(frame, folder="storage/snapshots"):
+def save_snapshot(annotated_frame, folder="storage/snapshots"):
     os.makedirs(folder, exist_ok=True)
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     filename = f"snapshot_{timestamp}.jpg"
     path = os.path.join(folder, filename)
 
-    cv2.imwrite(path, frame)
+    cv2.imwrite(path, annotated_frame)
     print(f"Snapshot saved: {path}")
 
 def main():
     settings = load_settings()
     camera_settings = settings['camera']
+    detector = ObjectDetector()
 
     stream = VideoStream(
         source=camera_settings['source'],
@@ -66,7 +68,7 @@ def main():
         fps=camera_settings['fps']
     ).start()
 
-    print("NodeWatch Phase 1 started.")
+    print("NodeWatch Phase 2 started.")
     print("Press 'q' to quit.")
 
     prev_time = time.time()
@@ -114,14 +116,17 @@ def main():
                 display_fps = round(fps)
                 last_fps_update = current_time
 
-            frame = draw_overlay(frame, display_fps, camera_status)
+            results = detector.detect(frame)
+            annotated_frame = results[0].plot()
 
-            cv2.imshow("NodeWatch Camera Feed", frame)
+            annotated_frame = draw_overlay(annotated_frame, display_fps, camera_status)
+
+            cv2.imshow("NodeWatch Camera Feed", annotated_frame)
 
             key = cv2.waitKey(1) & 0xFF
 
             if key == ord('q'):
-                print("Exiting NodeWatch Phase 1.")
+                print("Exiting NodeWatch Phase 2.")
                 break
             
             if key == ord('s'):
