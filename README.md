@@ -42,7 +42,7 @@ The project begins as a simple camera capture system and will gradually evolve i
 **Phase 8+** - Security Analytics, SIEM Integration, and Adversarial Testing 
 
 ## Requirements ##
-Python 3.10+ \
+Python 3.10 - 3.11 (friendliest with YOLO) \
 Install dependencies: \
 pip install -r requirements.txt
 
