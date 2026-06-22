@@ -15,6 +15,22 @@ The project begins as a simple camera capture system and will gradually evolve i
 * Camera health monitoring
 * Git/GitHub integration
 
+**Phase 2.1 Complete - Changes Implemented:**
+* YOLOv8 object detection integration
+* Real-time object classification
+* Bounding box rendering
+* Detection overlay integration
+* Obbject detection running at approximately 24-25 FPS
+* Confidence scores display
+  
+**Phase 2 - In Progress**
+* Detection confidence treshold filtering
+* Detection event generation
+* Snapshot capture on detection
+* Detection cooldown logic
+* Object satistics and counters
+* Detection logging framework
+  
 ## Project Roadmap ##
 **Phase 1** - Camera Capture Layer \
 **Phase 2** - YOLO Object Detection \
@@ -31,4 +47,4 @@ Install dependencies: \
 pip install -r requirements.txt
 
 ## Long-Term Goal ##
-Create a LAN-only computer vision platform capable of collecting, analyzing, and visualizing detection events while serving as a cybersecutity, machine learning, and software engineering learning project.
+Create a LAN-only computer vision platform capable of collecting, analyzing, and visualizing detection events while serving as a cybersecutity, machine learning, and software engineering learning project. NodeWatch is being developed incrementally, with each phase building upon the previous one. Features are validated in isolation before being integrated into the larger platform to maintain reliability and simplify troubleshooting.
